@@ -1,74 +1,20 @@
-export default function BountyPage({
-  title,
-  heading = "WANTED",
-  description = "",
-}) {
+// BountyPage.jsx
+export default function BountyPage({ title }) {
   return (
-    <div
-      className="
-        relative
-        w-full
-        h-full
-        rounded-xl
-
-        /* ===== PAGE LOOK ===== */
-        bg-white/12               /* CHANGE transparency here */
-        backdrop-blur-md
-        border border-white/25
-        shadow-[0_0_30px_rgba(255,255,255,0.12)]
-
-        /* ===== INTERACTION ===== */
-        transition-all duration-300
-        hover:scale-[1.04]        /* CHANGE hover pop here */
-        hover:shadow-[0_0_45px_rgba(245,217,139,0.35)]
-      "
-    >
-      {/* ===== INNER CONTENT ===== */}
-      <div className="p-5 flex flex-col h-full">
-        
-        {/* ===== WANTED (COMMON HEADING) ===== */}
-        <p
-          className="
-            font-rye
-            text-[11px]
-            tracking-[0.35em]
-            text-[#f5d98b]
-            mb-2
-          "
-        >
-          {heading}
-        </p>
-
-        {/* ===== PAGE TITLE ===== */}
-        <h2
-          className="
-            font-rye
-            text-xl
-            text-[#fff6cc]
-            mb-2
-          "
-        >
-          {title}
+    <div className="w-full h-full bg-white/95 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex flex-col items-center justify-start p-4 border-2 border-[#8B4513]">
+      {/* WANTED Header */}
+      <div className="text-center mb-2">
+        <h2 className="text-2xl md:text-3xl font-bold tracking-widest text-black">
+          WANTED
         </h2>
-
-        {/* ===== DESCRIPTION (OPTIONAL) ===== */}
-        {description && (
-          <p
-            className="
-              text-sm
-              text-white/80
-              leading-relaxed
-              mt-1
-            "
-          >
-            {description}
-          </p>
-        )}
-
-        {/* ===== CLICK LAYER ===== */}
-        {/* Wrap this div with <Link> when routing */}
-        {/* Example: <Link to='/events'> */}
-        <div className="absolute inset-0 cursor-pointer" />
+        <div className="w-full h-0.5 bg-black mt-1"></div>
+      </div>
+      
+      {/* Page Title */}
+      <div className="text-center">
+        <h3 className="text-xl md:text-2xl font-semibold text-black">
+          {title}
+        </h3>
       </div>
     </div>
   );
