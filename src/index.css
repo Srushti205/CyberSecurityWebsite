@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+/* Register Rye font */
+@theme {
+  --font-rye: "Rye", cursive;
+}
+
+/* Force a utility class so it is never purged */
+.font-rye {
+  font-family: var(--font-rye);
+}
+
+@keyframes glitchBorder {
+  0% {
+    transform: translate(0);
+    opacity: 0.6;
+  }
+  20% {
+    transform: translate(-1px, 1px);
+    opacity: 0.8;
+  }
+  40% {
+    transform: translate(1px, -1px);
+    opacity: 0.4;
+  }
+  60% {
+    transform: translate(-2px, 0);
+    opacity: 0.7;
+  }
+  80% {
+    transform: translate(2px, 1px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 0.6;
+  }
+}
+
+@theme {
+  --animate-glitchBorder: glitchBorder 2.5s infinite linear;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===============================
+   GLOBAL BACKGROUND COLOR
+   Change bg color here later
+   =============================== */
+body {
+  background-color: #192841; /* <-- MAIN BACKGROUND COLOR */
+  overflow-x: hidden;
+}
+
+/* ===============================
+   PERSPECTIVE GRID STYLES
+   ⚠️ CHANGE GLOW COLOR HERE LATER
+   =============================== */
+.perspective-grid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25vh; /* <-- grid covers lower 1/4th */
+  perspective: 800px;
+  overflow: hidden;
+}
+
+.grid {
+  position: absolute;
+  inset: -50%;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-size: 60px 60px;
+
+  transform: rotateX(65deg);
+  transform-origin: center;
+
+  /* CENTER GLOW — change color/strength here later */
+  box-shadow:
+    inset 0 0 120px rgba(255,255,255,0.35),
+    0 0 80px rgba(255,255,255,0.25);
+}
+@keyframes glitchFast {
+  0% { transform: translate(0); opacity: 0.6; }
+  15% { transform: translate(-2px, 2px); }
+  30% { transform: translate(2px, -1px); opacity: 0.9; }
+  45% { transform: translate(-3px, 1px); }
+  60% { transform: translate(3px, -2px); opacity: 0.5; }
+  100% { transform: translate(0); opacity: 0.6; }
+}
+
+@keyframes glitchSlow {
+  0% { transform: translate(0); opacity: 0.3; }
+  25% { transform: translate(1px, -1px); }
+  50% { transform: translate(-1px, 2px); opacity: 0.6; }
+  75% { transform: translate(2px, 1px); }
+  100% { transform: translate(0); opacity: 0.3; }
+}
+
+@keyframes textFlicker {
+  0%, 100% { opacity: 1; }
+  48% { opacity: 0.85; }
+  50% { opacity: 0.6; }
+  52% { opacity: 1; }
+}
+
+@theme {
+  --animate-glitchFast: glitchFast 1.2s infinite linear;
+  --animate-glitchSlow: glitchSlow 2.8s infinite linear;
+  --animate-textFlicker: textFlicker 3s infinite;
+}
+
+@keyframes glitchFast {
+  0% { transform: translate(0); opacity: 0.6; }
+  10% { transform: translate(-3px, 2px); }
+  25% { transform: translate(3px, -2px); opacity: 0.9; }
+  40% { transform: translate(-4px, 1px); }
+  55% { transform: translate(4px, -3px); opacity: 0.5; }
+  70% { transform: translate(-2px, 2px); }
+  100% { transform: translate(0); opacity: 0.6; }
+}
+
+@keyframes glitchSlow {
+  0% { transform: translate(0); opacity: 0.35; }
+  30% { transform: translate(2px, -1px); }
+  50% { transform: translate(-2px, 3px); opacity: 0.6; }
+  80% { transform: translate(3px, 2px); }
+  100% { transform: translate(0); opacity: 0.35; }
+}
+
+@keyframes textFlicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.9; }
+  50% { opacity: 0.5; }
+  55% { opacity: 1; }
+}
+
+@theme {
+  --animate-glitchFast: glitchFast 1.1s infinite linear;
+  --animate-glitchSlow: glitchSlow 3s infinite linear;
+  --animate-textFlicker: textFlicker 2.8s infinite;
+}
+/* ---------- BLUE GLITCH (RARE + NOTICEABLE) ---------- */
+@keyframes glitchBlue {
+  0%, 96%, 100% {
+    transform: translate(2px, -2px);
+    opacity: 0.45;
+  }
+  97% {
+    transform: translate(6px, -4px);
+    opacity: 0.9;
+  }
+  98% {
+    transform: translate(-4px, 3px);
+    opacity: 0.7;
+  }
+}
+
+/* ---------- GOLD GLITCH (VERY SLOW) ---------- */
+@keyframes glitchGold {
+  0%, 97%, 100% {
+    transform: translate(0);
+    opacity: 0.35;
+  }
+  98% {
+    transform: translate(2px, -1px);
+    opacity: 0.6;
+  }
+}
+
+/* ---------- TEXT PULSE (NOT BLINK) ---------- */
+@keyframes textPulse {
+  0%, 97%, 100% { opacity: 1; }
+  98% { opacity: 0.85; }
+}
+
+/* ---------- TAILWIND V4 REGISTRATION ---------- */
+@theme {
+  --animate-glitchBlue: glitchBlue 2s infinite;
+  --animate-glitchGold: glitchGold 4s infinite;
+  --animate-textPulse: textPulse 3s infinite;
+}
+
+.card-title {
+  @apply text-xl font-semibold tracking-widest uppercase mb-3;
+}
+
+.card-text {
+  @apply text-sm text-white/80 leading-relaxed;
+}
