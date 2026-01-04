@@ -191,3 +191,69 @@ body {
 .card-text {
   @apply text-sm text-white/80 leading-relaxed;
 }
+.glitch-band {
+  position: absolute;
+  animation: glitchBlink 1s linear;
+}
+
+.glitch-band.left { left: 0; }
+.glitch-band.right { right: 0; }
+
+/* ===============================
+   GLITCH LINES
+   =============================== */
+
+.glitch-line {
+  position: absolute;
+  height: 2px;
+}
+
+/* LEFT SIDE: anchor left */
+.glitch-band.left .glitch-line {
+  left: 0;
+}
+
+/* RIGHT SIDE: anchor right 🔴 FIX */
+.glitch-band.right .glitch-line {
+  right: 0;
+}
+
+/* White core */
+.glitch-line.white {
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 3;
+}
+
+/* Blue shadow */
+.glitch-line.blue {
+  top: 3px;
+  background: rgba(90, 160, 255, 0.85);
+  filter: blur(0.6px);
+  z-index: 2;
+}
+
+/* Green shadow */
+.glitch-line.green {
+  top: 6px;
+  background: rgba(100, 255, 200, 0.75);
+  filter: blur(0.8px);
+  z-index: 1;
+}
+
+/* blink */
+@keyframes glitchBlink {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  30% { opacity: 0.3; }
+  50% { opacity: 1; }
+  70% { opacity: 0.25; }
+  100% { opacity: 0; }
+}
+
+/* mobile */
+@media (max-width: 640px) {
+  .glitch-line {
+    height: 1px;
+  }
+}
