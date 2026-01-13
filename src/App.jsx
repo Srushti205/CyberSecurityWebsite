@@ -1,12 +1,13 @@
-import Navbar from "./components/Navbar";
-import BountyBoard from "./components/BountyBoard";
-import GlitchLines from "./components/GlitchLines"; 
-
-import PerspectiveGrid from "./components/PerspectiveGrid";
+import Navbar from "./components/HomePage/Navbar";
+import BountyBoard from "./components/HomePage/BountyBoard";
+import GlitchLines from "./components/HomePage/GlitchLines"; 
+import CyberGridBackground from "./components/HomePage/CyberGridBackground";
+import PerspectiveGrid from "./components/HomePage/PerspectiveGrid";
 
 function App() {
   return (
     <div className="relative min-h-screen text-white">
+      <CyberGridBackground />
       {/* Glitch Overlay */}
       <GlitchLines />
       {/* NAVBAR */}

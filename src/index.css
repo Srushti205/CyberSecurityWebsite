@@ -48,11 +48,20 @@
 /* ===============================
    GLOBAL BACKGROUND COLOR
    Change bg color here later
-   =============================== */
-body {
-  background-color: #192841; /* <-- MAIN BACKGROUND COLOR */
-  overflow-x: hidden;
+   =============================== *//* ===== Background with Silver Pentagons ===== */
+
+/* ================= CYBER SECURITY BACKGROUND ================= */
+
+
+
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-50px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
 }
+
 
 /* ===============================
    PERSPECTIVE GRID STYLES
@@ -71,8 +80,8 @@ body {
   position: absolute;
   inset: -50%;
   background-image:
-    linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.46) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.695) 1px, transparent 1px);
   background-size: 60px 60px;
 
   transform: rotateX(65deg);
@@ -80,37 +89,8 @@ body {
 
   /* CENTER GLOW — change color/strength here later */
   box-shadow:
-    inset 0 0 120px rgba(255,255,255,0.35),
-    0 0 80px rgba(255,255,255,0.25);
-}
-@keyframes glitchFast {
-  0% { transform: translate(0); opacity: 0.6; }
-  15% { transform: translate(-2px, 2px); }
-  30% { transform: translate(2px, -1px); opacity: 0.9; }
-  45% { transform: translate(-3px, 1px); }
-  60% { transform: translate(3px, -2px); opacity: 0.5; }
-  100% { transform: translate(0); opacity: 0.6; }
-}
-
-@keyframes glitchSlow {
-  0% { transform: translate(0); opacity: 0.3; }
-  25% { transform: translate(1px, -1px); }
-  50% { transform: translate(-1px, 2px); opacity: 0.6; }
-  75% { transform: translate(2px, 1px); }
-  100% { transform: translate(0); opacity: 0.3; }
-}
-
-@keyframes textFlicker {
-  0%, 100% { opacity: 1; }
-  48% { opacity: 0.85; }
-  50% { opacity: 0.6; }
-  52% { opacity: 1; }
-}
-
-@theme {
-  --animate-glitchFast: glitchFast 1.2s infinite linear;
-  --animate-glitchSlow: glitchSlow 2.8s infinite linear;
-  --animate-textFlicker: textFlicker 3s infinite;
+    inset 0 0 120px rgba(255, 255, 255, 0.459),
+    0 0 80px rgba(255, 255, 255, 0.644);
 }
 
 @keyframes glitchFast {
@@ -143,6 +123,7 @@ body {
   --animate-glitchSlow: glitchSlow 3s infinite linear;
   --animate-textFlicker: textFlicker 2.8s infinite;
 }
+
 /* ---------- BLUE GLITCH (RARE + NOTICEABLE) ---------- */
 @keyframes glitchBlue {
   0%, 96%, 100% {
@@ -191,6 +172,7 @@ body {
 .card-text {
   @apply text-sm text-white/80 leading-relaxed;
 }
+
 .glitch-band {
   position: absolute;
   animation: glitchBlink 1s linear;
@@ -255,5 +237,46 @@ body {
 @media (max-width: 640px) {
   .glitch-line {
     height: 1px;
+  }
+}
+
+/* Rye font utility */
+.font-rye {
+  font-family: "Rye", serif;
+}
+
+@keyframes vertical-scan {
+  0% {
+    top: -12%; /* 🔧 change start offset */
+  }
+  50% {
+    top: 100%; /* 🔧 reaches FULL bottom */
+  }
+  100% {
+    top: -12%; /* 🔧 goes back to top */
+  }
+}
+
+/* 🔧 CHANGE DURATION HERE (slower = bigger number) */
+.animate-vertical-scan {
+  animation: vertical-scan 4s linear infinite;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @keyframes gridMove {
+    from {
+      background-position: 0 0, 0 0;
+    }
+    to {
+      background-position: 0 1000px, 0 1000px;
+    }
+  }
+
+  .animate-gridMove {
+    animation: gridMove 15s linear infinite;
   }
 }

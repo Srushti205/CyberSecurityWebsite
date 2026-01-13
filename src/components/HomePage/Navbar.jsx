@@ -40,6 +40,7 @@ const Navbar = () => {
           <li className="hover:text-gray-300 cursor-pointer">Home</li>
           <li className="hover:text-gray-300 cursor-pointer">About Us</li>
           <li className="hover:text-gray-300 cursor-pointer">Events</li>
+          <li className="hover:text-gray-300 cursor-pointer">Blog</li>
           <li className="hover:text-gray-300 cursor-pointer">Practice</li>
           <li className="hover:text-gray-300 cursor-pointer">Learn</li>
         </ul>
@@ -70,6 +71,7 @@ const Navbar = () => {
           <span>Home</span>
           <span>About Us</span>
           <span>Events</span>
+          <span>Blog</span>
           <span>Practice</span>
           <span>Learn</span>
         </div>
