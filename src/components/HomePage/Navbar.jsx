@@ -1,7 +1,9 @@
+import logo from "../../assets/logo.jpeg";
 import { useState } from "react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+   console.log("Logo path:", logo);
 
   return (
     <nav
@@ -14,17 +16,24 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         {/* ===== LOGO / BRAND ===== */}
-        <h1
-          className="
-            text-white
-            text-xl
-            font-semibold
-            tracking-widest
-            font-['Orbitron']
-          "
-        >
-          CYBERSECURITY CLUB CCOEW
-        </h1>
+        <div className="flex items-center gap-3">
+  <img
+    src={logo}
+    alt="Cybersecurity Club Logo"
+    className="h-20 w-20 object-contain"
+  />
+  <h1
+    className="
+      text-white
+      text-xl
+      font-semibold
+      tracking-widest
+      font-['Orbitron']
+    "
+  >
+    CYBERSECURITY CLUB CCOEW
+  </h1>
+</div>
 
         {/* ===== DESKTOP NAV ===== */}
         <ul
@@ -37,12 +46,30 @@ const Navbar = () => {
           "
         >
           {/* Change font size / color here */}
-          <li className="hover:text-gray-300 cursor-pointer">Home</li>
-          <li className="hover:text-gray-300 cursor-pointer">About Us</li>
-          <li className="hover:text-gray-300 cursor-pointer">Events</li>
-          <li className="hover:text-gray-300 cursor-pointer">Blog</li>
-          <li className="hover:text-gray-300 cursor-pointer">Practice</li>
-          <li className="hover:text-gray-300 cursor-pointer">Learn</li>
+          <li className="hover:text-gray-300 cursor-pointer relative group">
+            Home
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <li className="hover:text-gray-300 cursor-pointer relative group">
+            About Us
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <li className="hover:text-gray-300 cursor-pointer relative group">
+            Events
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <li className="hover:text-gray-300 cursor-pointer relative group">
+            Blog
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <li className="hover:text-gray-300 cursor-pointer relative group">
+            Practice
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </li>
+          <li className="hover:text-gray-300 cursor-pointer relative group">
+            Learn
+            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </li>
         </ul>
 
         {/* ===== MOBILE MENU ICON ===== */}

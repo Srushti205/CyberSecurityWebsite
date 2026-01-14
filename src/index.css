@@ -1,5 +1,13 @@
 @import "tailwindcss";
-
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 /* Register Rye font */
 @theme {
   --font-rye: "Rye", cursive;
@@ -44,16 +52,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* ===============================
-   GLOBAL BACKGROUND COLOR
-   Change bg color here later
-   =============================== *//* ===== Background with Silver Pentagons ===== */
-
-/* ================= CYBER SECURITY BACKGROUND ================= */
-
-
-
 
 /* Floating animation */
 @keyframes float {
@@ -259,7 +257,7 @@
 
 /* 🔧 CHANGE DURATION HERE (slower = bigger number) */
 .animate-vertical-scan {
-  animation: vertical-scan 4s linear infinite;
+  animation: vertical-scan 100s linear infinite;
 }
 
 @tailwind base;
@@ -280,3 +278,4 @@
     animation: gridMove 15s linear infinite;
   }
 }
+
